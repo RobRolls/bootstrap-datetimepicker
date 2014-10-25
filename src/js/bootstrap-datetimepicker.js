@@ -1354,13 +1354,31 @@ THE SOFTWARE.
             input.prop('disabled', true);
             detachDatePickerEvents();
         };
-
-        picker.enable = function () {
+		
+		picker.enable = function () {
             var input = getPickerInput();
             if (!input.prop('disabled')) {
                 return;
             }
             input.prop('disabled', false);
+            attachDatePickerEvents();
+        };
+		
+		picker.readOnly = function () {
+            var input = getPickerInput();
+            if (input.prop('readonly')) {
+                return;
+            }
+            input.prop('readonly', true);
+            detachDatePickerEvents();
+        };
+		
+		picker.readable = function () {
+            var input = getPickerInput();
+            if (!input.prop('readonly')) {
+                return;
+            }
+            input.prop('readonly', false);
             attachDatePickerEvents();
         };
 
